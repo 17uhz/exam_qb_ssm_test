@@ -14,7 +14,7 @@
     </select>
 
     <select id="userLogin" parameterType="User" resultType="User">
-        select * from exam_user where acc=#{acc} and pwd={pwd} and is_delete=0
+        select * from exam_user where acc=#{acc} and pwd=#{pwd} and is_delete=0
     </select>
 
     <select id="selectUserAccPhone" parameterType="User" resultType="User">
@@ -22,7 +22,11 @@
     </select>
 
     <update id="changePwd" parameterType="User">
-        update exam_user set pwd=#{pwd} where acc={acc} and is_delete=0
+        update exam_user set pwd=#{pwd} where acc=#{acc} and is_delete=0
+    </update>
+
+    <update id="upLoadImage" parameterType="User">
+        update exam_user set image=#{image} where u_id=#{u_id} and is_delete=0
     </update>
 
 

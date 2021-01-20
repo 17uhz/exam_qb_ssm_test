@@ -40,7 +40,11 @@ public class ExamController {
         int result = 0;
         Map<String,String> param = new HashMap<String, String>();
         result = userService.userLogin(request, user);
-        param.put("mark",Integer.toString(result));
+        if (result==1){
+            param.put("mark","true");
+        }else {
+            param.put("mark","false");
+        }
         return param;
     }
 
@@ -66,7 +70,7 @@ public class ExamController {
     public Map<String,String> changePwd(@RequestBody User user){
         Map<String,String> param = new HashMap<String, String>();
         int i = userService.changePwd(user);
-        if (i>0){
+        if (i==1){
             param.put("mark","true");
         }else {
             param.put("mark","false");
@@ -75,16 +79,19 @@ public class ExamController {
         return param;
     }
 
-//    //上传头像
-//    @RequestMapping("/uploadImage")
-//    @ResponseBody
-//    public Map<String,Object> uploadImage(HttpServletRequest request){
-//        String savePath = request.getServletContext().getRealPath("/uploadFile");
-//
-//        String tempPath = request.getServletContext().getRealPath("/tempFile");
-//
-//
-//    }
+    //上传头像
+    @RequestMapping("/uploadImage")
+    @ResponseBody
+    public Map<String,Boolean> uploadImage(HttpServletRequest request){
+//        测试代码
+//        User user = new User();
+//        user.setU_id("10efe075-a94e-4d98-9ef3-28e39713954b");
+//        user.setIs_delete(0);
+//        request.getSession().setAttribute("Info",user);
+        Map<String, Boolean> result = userService.uploadImage(request);
+        System.out.println(result);
+        return result;
+    }
 
 
 

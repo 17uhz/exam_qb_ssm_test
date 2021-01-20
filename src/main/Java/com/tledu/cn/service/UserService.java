@@ -3,6 +3,7 @@ package com.tledu.cn.service;
 import com.tledu.cn.pojo.User;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * Author:17
@@ -14,5 +15,7 @@ public interface UserService {
 
     int userLogin(HttpServletRequest request,User user);
     int changePwd(User user);
+
+    Map<String,Boolean> uploadImage(HttpServletRequest request);
 
 }

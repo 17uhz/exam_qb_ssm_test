@@ -17,6 +17,7 @@ public interface UserDao {
     User userLogin(User user);
     List<User> selectUserAccPhone(User user); //查看是否存在 acc ，phone 一致的用户，一致，后续用于更改密码
     int changePwd(User user);
+    int upLoadImage(User user);
 }
 
 
