@@ -139,7 +139,7 @@ public class UserServiceImpl implements UserService {
                     if (user!=null){
 //                        E:\20stu_File\ideaProject\exam_qb_ssm\src\main\webapp\image\20210120/561ec0ce-d98d-4049-9ac6-ed1e6dc9f516_testtttttt.jpg
                         String dataImgFile = realSavePath.substring(realSavePath.lastIndexOf("\\") + 1);
-                        user.setImage("../image"+dataImgFile+"/"+saveFileName);
+                        user.setImage("../image/"+dataImgFile+"/"+saveFileName);
 //                        System.out.println("-------------------"+user.getImage());
                         int i = userDao.upLoadImage(user);
                         result.put("mark",true);
